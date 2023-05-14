@@ -1,0 +1,24 @@
+plugins {
+	id 'java' // 언어 : java
+	id 'org.springframework.boot' version '3.0.6'	// springboot version 3.0.6
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'inflearn.kimyounghan'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17' // java version : java17
+
+repositories {
+	mavenCentral() 		   // mavenCentral싸이트 받아오라는 디폴트값 설정
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' //  아까 싸이트에서 타임리프 클릭한 그거
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'   // 강의 2.3버젼에서는 그냥 starter-web. 여기는 webflux! & 아까 싸이트에서 web클릭한 그거
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'  // 테스터 라이브러리 : JUnit5까지 탑재됨
+	testImplementation 'io.projectreactor:reactor-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
